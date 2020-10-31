@@ -1,0 +1,31 @@
+[init]
+  defaultBranch = main
+[user]
+  email = bryan.paronto@bottomline.com
+  name = Bryan Paronto
+[push]
+	default = simple
+[core]
+	excludesfile = /home/bryan/.gitignore
+	editor = nvim
+[merge]
+    tool = nvim
+[mergetool "nvim"]
+    cmd = nvim $MERGED
+[diff]
+    tool = nvim
+[difftool "nvim"]
+    cmd = nvim -d $LOCAL $REMOTE
+[http]
+	sslVerify = false
+[alias]
+	assume = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+[pull]
+	rebase = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
